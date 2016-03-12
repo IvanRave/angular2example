@@ -34,10 +34,11 @@ Pros:
 
 - lower case
 - two or more words, separated by dash (one word only for HTML tags)
-- start with some specific word, like
-  - my-.. for main app
-  - md-.. for material design components
-  - etc-..
+- start with some specific word (2-3 letters), like
+  - my-app for example apps
+  - md-button for material design components
+  - bsp-carousel for bootstrap modules
+  - etc-...
 
 
 ### Exporting

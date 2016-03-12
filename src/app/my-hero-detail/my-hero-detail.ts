@@ -8,7 +8,7 @@ import {HeroSvc} from '../svc/hero';
 @Component({
 	selector: 'my-hero-detail',
 	// The input declaration ensures that consumers of our directive can only bind to the properties of our public API ... nothing else.
-	inputs: ['hero'],
+	//inputs: ['hero'],
 	templateUrl: 'app/my-hero-detail/my-hero-detail.html',
 	styleUrls: ['app/my-hero-detail/my-hero-detail.css']
 })
