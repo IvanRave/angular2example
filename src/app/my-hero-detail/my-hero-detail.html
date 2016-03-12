@@ -3,9 +3,10 @@
   <div><label>id: </label>{{hero.id}}</div>
   <div>
     <label>name: </label>
-    <input [(ngModel)]="hero.name" placeholder="name"/>
+    <input [(ngModel)]="nameEdit" placeholder="name"/>
   </div>
   <button (click)="goBack()">Back</button>
+  <button (click)="saveName(nameEdit)">Save</button>
 </div>
 <div *ngIf="errorMsg">
   {{errorMsg}}

@@ -23,7 +23,7 @@ export class MyDashboard implements OnInit {
 			.catch(err => this.errorMsg = <string>err);
 	}
 
-	gotoDetail(hero: Hero) {
+	gotoHeroDetail(hero: Hero) {
 		let linkData = ['HeroDetail', {id: hero.id}];
 		this._router.navigate(linkData);
 	}

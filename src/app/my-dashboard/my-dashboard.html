@@ -1,13 +1,14 @@
 <h3>Top Heroes</h3>
 <div class="grid grid-pad">
   <div *ngFor="#hero of heroes"
-	   (click)="gotoDetail(hero)"
+	   (click)="gotoHeroDetail(hero)"
 	   class="col-1-4">
+	<!-- hero preview -->
 	<div class="module hero">
 	  <h4>{{hero.name}}</h4>
 	</div>
   </div>
-</div>
-<div *ngIf="errorMsg">
-  {{errorMsg}}
+  <div *ngIf="errorMsg">
+	{{errorMsg}}
+  </div>
 </div>

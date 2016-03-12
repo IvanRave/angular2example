@@ -2,6 +2,18 @@ Angular2 example: devserver, production build, using webpack
 ===
 
 
+Features
+---
+
+- Top-level routes, child routes
+- Intercepting redirects (e.g. if data is not saved)
+- Build the app for production
+  - chunk
+  - minify (uglify)
+  - copy
+  - ts lint
+- Dev server to develop
+
 Run
 ---
 
