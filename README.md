@@ -59,3 +59,4 @@ Pros:
 - HeroSvc, OtherSvc - for services
 - InitCapsPipe, SomeTransformPipe - for pipes
 - Hero, User, Company - for classes (interfaces)
+(usually models retrieves from a server - use it instead of re-creation on a client side)

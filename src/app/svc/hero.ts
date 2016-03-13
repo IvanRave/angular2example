@@ -35,7 +35,7 @@ export class HeroSvc {
 			return Promise.resolve(this.heroes);
 		}
 		
-		return this._httpSvc.get('app/data/heroes.json')
+		return this._httpSvc.get('app/data/heroes.json', {})
 			.then(arr => {
 				// save to cache
 				// use 'this' from outer scope

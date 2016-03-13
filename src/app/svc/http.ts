@@ -1,9 +1,32 @@
 import {Injectable}     from 'angular2/core';
 
+var objToForm = function(obj: any) {		
+	var str: any[] = [];
+	for(var p in obj){
+		// skip null fields
+		if (obj[p] !== null) {
+			// skip all related, nested objects
+			if (typeof obj[p] !== 'object'){
+				str.push(encodeURIComponent(p) +
+						 "=" + encodeURIComponent(obj[p]));
+			}
+		}
+	}
+	return str.join("&");
+};
+
 @Injectable()
 export class HttpSvc {
 	
-	get(theUrl: string){
+	get(theUrl: string, urlParams: any){
+
+		if (urlParams){
+			var strParams = objToForm(urlParams);
+			if (strParams){
+				theUrl += "?" + strParams;
+			}
+		}
+		
 		// https://github.com/mdn/promises-test/blob/gh-pages/index.html
 		return new Promise(function(resolve, reject) {
 			var xmlHttp = new XMLHttpRequest();
@@ -47,6 +70,10 @@ export class HttpSvc {
 			};
 			
 			xmlHttp.open("GET", theUrl, true); // true for asynchronous
+
+			// not required, if no  body
+			//xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+			
 			xmlHttp.send(null);
 		});
 		
