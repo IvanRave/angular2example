@@ -3,12 +3,13 @@ import {RouteParams, CanDeactivate, ComponentInstruction} from 'angular2/router'
 
 import {Hero} from '../mdl/hero';
 import {HeroSvc} from '../svc/hero';
-
+import {OrderByPipe} from '../pipes/order-by';
 
 @Component({
 	selector: 'my-hero-detail',
 	// The input declaration ensures that consumers of our directive can only bind to the properties of our public API ... nothing else.
 	//inputs: ['hero'],
+	pipes: [ OrderByPipe ],
 	templateUrl: 'app/my-hero-detail/my-hero-detail.html',
 	styleUrls: ['app/my-hero-detail/my-hero-detail.css']
 })
@@ -16,6 +17,7 @@ export class MyHeroDetail implements OnInit, CanDeactivate {
 	hero: Hero;
 	errorMsg: string;
 	nameEdit: string;
+	inputFlow: any[] = [];
 
  	// executes, when AppCmp creates a HeroDetail (once)
 	constructor(private _heroSvc: HeroSvc,
@@ -51,4 +53,12 @@ export class MyHeroDetail implements OnInit, CanDeactivate {
 		window.history.back();
 	}
 
+	onKey(ev: any){
+		// if (ev.target.value !== this.inputFlow[this.inputFlow.length - 1]){
+		this.inputFlow.push({
+			created: new Date(),
+			msg: ev.target.value
+		});
+		//	}
+	}
 }

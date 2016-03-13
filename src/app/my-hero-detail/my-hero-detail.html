@@ -3,10 +3,24 @@
   <div><label>id: </label>{{hero.id}}</div>
   <div>
     <label>name: </label>
-    <input [(ngModel)]="nameEdit" placeholder="name"/>
-  </div>
+    <input placeholder="name"
+		   [(ngModel)]="nameEdit"
+		   (keyup)="onKey($event)"
+		   />
+  </div>  
   <button (click)="goBack()">Back</button>
   <button (click)="saveName(nameEdit)">Save</button>
+
+  <div>
+	<h4>
+	  History:
+	</h4>
+	<ul style="height: 100px; overflow-x: hidden; overflow-y: auto; border: 1px solid #000; padding: 8px">
+	  <li *ngFor="#item of inputFlow | orderBy:'created'">
+		{{item.created | date:'hh:mm:ss'}}: {{item.msg}}
+	  </li>
+	</ul>
+  </div>
 </div>
 <div *ngIf="errorMsg">
   {{errorMsg}}

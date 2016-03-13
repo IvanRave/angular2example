@@ -27,4 +27,8 @@ export class MyDashboard implements OnInit {
 		let linkData = ['HeroDetail', {id: hero.id}];
 		this._router.navigate(linkData);
 	}
+
+	delayedMessage:Promise<string> = new Promise((resolve, reject) => {
+		setTimeout(() => resolve('it is a delayed message, using Promise'), 1000);
+	});
 }
