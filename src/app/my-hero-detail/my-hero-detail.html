@@ -5,7 +5,7 @@
     <label>name: </label>
     <input placeholder="name"
 		   [(ngModel)]="nameEdit"
-		   (keyup)="onKey($event)"
+		   (keyup)="onKey($event.target.value)"
 		   />
   </div>  
   <button (click)="goBack()">Back</button>

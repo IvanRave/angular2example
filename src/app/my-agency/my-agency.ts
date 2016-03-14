@@ -3,6 +3,7 @@ import {RouterOutlet, RouteConfig} from 'angular2/router';
 import {AgencySvc} from './agency-svc';
 import {MyAgencyList} from './my-agency-list';
 import {MyAgencyDetail} from './my-agency-detail';
+import {MyAgencyCreation} from './my-agency-creation';
 
 // A shell of agency management
 // Defines Agency child routes
@@ -20,6 +21,11 @@ import {MyAgencyDetail} from './my-agency-detail';
 		path:'/detail',
 		name: 'AgencyDetail',
 		component: MyAgencyDetail
+	},
+	{
+		path: '/add',
+		name: 'AgencyCreation',
+		component: MyAgencyCreation
 	}
 ])
 @Component({

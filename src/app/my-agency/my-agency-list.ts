@@ -1,6 +1,6 @@
 import {Component,OnInit} from 'angular2/core';
 
 @Component({
-	template: 'agency list'
+	templateUrl: 'app/my-agency/my-agency-list.html'
 })
 export class MyAgencyList{}

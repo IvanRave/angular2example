@@ -53,11 +53,11 @@ export class MyHeroDetail implements OnInit, CanDeactivate {
 		window.history.back();
 	}
 
-	onKey(ev: any){
+	onKey(val: string){
 		// if (ev.target.value !== this.inputFlow[this.inputFlow.length - 1]){
 		this.inputFlow.push({
 			created: new Date(),
-			msg: ev.target.value
+			msg: val
 		});
 		//	}
 	}

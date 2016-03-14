@@ -1,0 +1,66 @@
+<div class="container">
+  <h1>Hero Form</h1>
+  <form [ngFormModel]="clForm">	
+	{{diagnostic}}
+	<div class="form-group">
+	  <label>Name:
+		<input type="text" class="form-control"
+			   required
+			   [(ngModel)]="model.name"
+			   ngControl="clName"/>
+	  </label>
+	  <ul>
+		<li>pending: {{clName.pending}}</li>
+		<li>valid: {{clName.valid}}</li>
+		<li>dirty: {{clName.dirty}}</li>
+	  </ul>
+	  <div *ngIf="clName.dirty && !clName.valid">
+		errors:{{clName.errors | json}}
+		<p *ngIf="clName.errors.minlength">
+		  min length: {{clName.errors.minlength.requiredLength}}
+		</p>
+	  </div>
+	  <!-- maxlength is not allow to paste a string and remove some symbols -->
+	  <!-- required: show different popups for different browsers in different languages -->
+	  <!-- <div [hidden]="spy.valid || spy.pristine" class="alert alert-danger"> -->
+	  <!-- 	Name is required -->
+	  <!-- </div> -->
+	</div>
+	<div class="form-group">
+	  <label for="alterEgo">Alter Ego</label>
+	  <input type="text" class="form-control"
+			 [(ngModel)]="model.alterEgo"/>
+	</div>
+	<div class="form-group">
+	  <label for="power">Hero Power</label>
+	  <select class="form-control" required
+			  [(ngModel)]="model.power">
+		<option *ngFor="#p of powers" [value]="p">{{p}}</option>
+	  </select>
+	</div>
+	<button type="submit" class="btn btn-default"
+			[disabled]="!clForm.valid"
+			(click)="onSubmit(model)">Submit
+	</button>
+  </form>
+
+  <p>
+	[] - This is a one-way data binding from the model to the view
+  </p>
+  <p>
+	() - This is a one-way data binding in the opposite direction from the view to the model
+  </p>
+  <p>
+	[()] - a two-way data binding and a flow of data in both directions
+  </p>
+  <p>
+	The ngModelChange is not an <i>input</i> element event. It is actually an event property of the NgModel directive. When Angular sees a binding target in the form [(x)], it expects the x directive to have an x input property and an xChange output property.
+  </p>
+  <p>
+	(ngModelChange)="model.name = $event"
+	The other oddity is the template expression, model.name = $event. We're used to seeing an $event object coming from a DOM event.
+	The ngModelChange property doesn't produce a DOM event;
+	it's an Angular EventEmitter property that returns the input box value when it fires — which is precisely what we should assign to the model's name property.
+  </p>
+</div>
+
